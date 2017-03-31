@@ -53,7 +53,7 @@ void  BST::destroyTree(Node* &p)
 		p = nullptr;
 	}
 }
-	
+
 void  BST::destroyTree()
 {
 	destroyTree(root);
@@ -127,18 +127,18 @@ int BST::totalNodes() const
 		return 0;
 	}
 	
-	return totalNodes(root) - 1;
+	return totalNodes(root);
 }
 
 // Definition function totalNodes (recursive)
-int BST::totalNodes(Node * p) const
+int BST::totalNodes(const Node * p) const
 {
 	if (p == nullptr)
 	{
-		return 1;
+		return 0;
 	}
 
-	return totalNodes(p->llink) + totalNodes(p->rlink);
+	return 1 + totalNodes(p->llink) + totalNodes(p->rlink);
 }
 
 // Definition overloaded function preorderTraversal

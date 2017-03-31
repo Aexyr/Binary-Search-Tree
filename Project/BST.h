@@ -57,7 +57,7 @@ private:
 	void inorderTraversal(const Node* p) const;
 
 	// Declaration overloaded function totalNodes (recursive)
-	int totalNodes(Node* p) const;
+	int totalNodes(const Node* p) const;
 
 	// Declaration overloaded function preorderTraversal (recursive)
 	void preorderTraversal(const Node* p) const;
