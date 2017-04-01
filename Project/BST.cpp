@@ -133,12 +133,7 @@ int BST::totalNodes() const
 // Definition function totalNodes (recursive)
 int BST::totalNodes(const Node * p) const
 {
-	if (p == nullptr)
-	{
-		return 0;
-	}
-
-	return 1 + totalNodes(p->llink) + totalNodes(p->rlink);
+	return (p != nullptr)? (1 + totalNodes(p->llink) + totalNodes(p->rlink)) : 0;
 }
 
 // Definition overloaded function preorderTraversal
