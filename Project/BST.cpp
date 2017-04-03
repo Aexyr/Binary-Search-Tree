@@ -174,8 +174,8 @@ void BST::postorderTraversal(const Node * p) const
 {
 	if (p != nullptr)
 	{
-		preorderTraversal(p->llink);
-		preorderTraversal(p->rlink);
+		postorderTraversal(p->llink);
+		postorderTraversal(p->rlink);
 		cout << p->data << " ";
 	}
 }
