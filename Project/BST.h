@@ -25,6 +25,7 @@ public:
 	//void insert(int item); 
 	
 	void inorderTraversal() const;
+	void morrisInorderTrav() const;
 
 	void destroyTree();
 	
@@ -41,10 +42,12 @@ public:
 	// Declaration overloaded function preorderTraversal
 	// Print all nodes in the BST in a preorder sequence
 	void preorderTraversal() const;
+	void morrisPreorderTrav() const;
 
 	// Declaration overloaded function postorderTraversal
 	// Print all nodes in the BST in a postorder sequence
 	void postorderTraversal() const;
+	void morrisPostorderTrav() const;
 
 			
 private:	

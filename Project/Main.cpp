@@ -70,11 +70,17 @@ void testTree(const BST& bst)
 	cout << "Inorder traversal: ";
 	bst.inorderTraversal();
 
+	cout << "\nMorris Inorder traversal: ";
+	bst.morrisInorderTrav();
+
 	//other testcases
 	//TEST: preorderTraversal
 	cout << "\nPreorder traversal: ";
 	bst.preorderTraversal();
 	
+	cout << "\nMorris Preorder traversal: ";
+	bst.morrisPreorderTrav();
+
 	//TEST: postorderTraversal
 	cout << "\nPostorder traversal: ";
 	bst.postorderTraversal();

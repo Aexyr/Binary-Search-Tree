@@ -33,6 +33,45 @@ void BST::inorderTraversal() const
 	}
 }
 
+void BST::morrisInorderTrav() const
+{
+	if (root == nullptr)
+		cerr << "There is no tree.";
+	else
+	{
+		Node* current = root;
+		Node* previous;
+		while (current != nullptr)
+		{
+			if (current->llink == nullptr)
+			{
+				cout << current->data << " ";
+				current = current->rlink;
+			}
+			else
+			{
+				previous = current->llink;
+				while (previous->rlink != nullptr && previous->rlink != current)
+				{
+					previous = previous->rlink;
+				}
+
+				if (previous->rlink == nullptr)
+				{
+					previous->rlink = current;
+					current = current->llink;
+				}
+				else
+				{
+					previous->rlink = nullptr;
+					cout << current->data << " ";
+					current = current->rlink;
+				}
+			}
+		}
+	}
+}
+
 void BST::inorderTraversal(const Node *p) const
 {
 	if (p != nullptr)
@@ -147,6 +186,45 @@ void BST::preorderTraversal() const
 	}
 }
 
+void BST::morrisPreorderTrav() const
+{
+	if (root == nullptr)
+		cerr << "There is no tree.";
+	else
+	{
+		Node* current = root; 
+		Node* previous;
+		while (current != nullptr)
+		{
+			if (current->llink == nullptr)
+			{
+				cout << current->data << " ";
+				current = current->rlink;
+			}
+			else
+			{
+				previous = current->llink;
+				while (previous->rlink != nullptr && previous->rlink != current)
+				{
+					previous = previous->rlink;
+				}
+
+				if (previous->rlink == nullptr)
+				{
+					cout << current->data << " ";
+					previous->rlink = current;
+					current = current->llink;
+				}
+				else
+				{
+					previous->rlink = nullptr;
+					current = current->rlink;
+				}
+			}
+		}
+	}
+}
+
 // Definition overloaded function preorderTraversal (recursive)
 void BST::preorderTraversal(const Node * p) const
 {
@@ -166,6 +244,48 @@ void BST::postorderTraversal() const
 	else
 	{
 		postorderTraversal(root);
+	}
+}
+
+void BST::morrisPostorderTrav() const
+{
+	if (root == nullptr)
+		cerr << "There is no tree.";
+	else
+	{
+		int level = 0;
+		Node* current = root;
+		Node* parent = new Node;
+		Node* previous;
+		while (current != nullptr)
+		{
+			if (current->llink == nullptr)
+			{
+				cout << current->data << " ";
+				current = current->rlink;
+			}
+			else
+			{
+				previous = current->llink;
+				while (previous->rlink != nullptr && previous->rlink != current)
+				{
+					previous = previous->rlink;
+				}
+
+				if (previous->rlink == nullptr)
+				{
+					previous->rlink = current;
+					current = current->llink;
+				}
+				else
+				{
+					//if parent->data != current->rlink->data
+					++level;
+					previous->rlink = nullptr;
+					current = current->rlink;
+				}
+			}
+		}
 	}
 }
 
