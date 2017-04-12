@@ -249,14 +249,15 @@ void BST::postorderTraversal() const
 
 void BST::morrisPostorderTrav() const
 {
+	Node *temp = new Node();
+	temp->llink = root;
 	if (root == nullptr)
 		cerr << "There is no tree.";
 	else
 	{
-		int level = 0;
-		Node* current = root;
-		Node* first, *middle, *last;
-		Node* previous;
+		Node *current = temp;
+		Node *previous;
+		Node *first, *middle, *last;
 		while (current != nullptr)
 		{
 			if (current->llink == nullptr)
@@ -290,7 +291,6 @@ void BST::morrisPostorderTrav() const
 					first = current;
 					middle = previous;
 					while (middle != current) {
-
 						cout << middle->data << " ";
 						last = middle->rlink;
 						middle->rlink = first;
@@ -298,7 +298,7 @@ void BST::morrisPostorderTrav() const
 						middle = last;
 					}
 
-					previous->rlink = NULL;
+					previous->rlink = nullptr;
 					current = current->rlink;
 				}
 			}
