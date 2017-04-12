@@ -85,6 +85,9 @@ void testTree(const BST& bst)
 	cout << "\nPostorder traversal: ";
 	bst.postorderTraversal();
 
+	cout << "\nMorris Postorder traversal: ";
+	bst.morrisPostorderTrav();
+
 	//TEST: totalNodes
 	cout << "\nTotal nodes: " << bst.totalNodes();
 }

@@ -255,13 +255,12 @@ void BST::morrisPostorderTrav() const
 	{
 		int level = 0;
 		Node* current = root;
-		Node* parent = new Node;
+		Node* first, *middle, *last;
 		Node* previous;
 		while (current != nullptr)
 		{
 			if (current->llink == nullptr)
 			{
-				cout << current->data << " ";
 				current = current->rlink;
 			}
 			else
@@ -279,9 +278,27 @@ void BST::morrisPostorderTrav() const
 				}
 				else
 				{
-					//if parent->data != current->rlink->data
-					++level;
-					previous->rlink = nullptr;
+					first = current;
+					middle = current->llink;
+					while (middle != current) {
+						last = middle->rlink;
+						middle->rlink = first;
+						first = middle;
+						middle = last;
+					}
+
+					first = current;
+					middle = previous;
+					while (middle != current) {
+
+						cout << middle->data << " ";
+						last = middle->rlink;
+						middle->rlink = first;
+						first = middle;
+						middle = last;
+					}
+
+					previous->rlink = NULL;
 					current = current->rlink;
 				}
 			}
