@@ -249,13 +249,12 @@ void BST::postorderTraversal() const
 
 void BST::morrisPostorderTrav() const
 {
-	Node *temp = new Node();
-	temp->llink = root;
 	if (root == nullptr)
 		cerr << "There is no tree.";
 	else
 	{
-		Node *current = temp;
+		Node *current = new Node();
+		current->llink = root;
 		Node *previous;
 		Node *first, *middle, *last;
 		while (current != nullptr)
